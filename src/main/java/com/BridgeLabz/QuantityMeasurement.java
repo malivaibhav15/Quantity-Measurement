@@ -6,12 +6,19 @@ public class QuantityMeasurement
         double totalLength = foot*inches;
         return totalLength;
     }
-    public boolean calLength(int foot , int inch)
+    public boolean calLength(int foot , int foot1)
     {
-        if (foot == inch)
-            return true;
-        else
-            return false;
+        return foot == foot1;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return true;
+        if (this.getClass() == obj.getClass())
+            return true;
+        if (obj == this)
+            return true;
+        return super.equals(obj);
+    }
 }
