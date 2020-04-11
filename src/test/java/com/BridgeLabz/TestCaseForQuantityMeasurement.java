@@ -24,6 +24,7 @@ public class TestCaseForQuantityMeasurement
         boolean totalLength = quantityMeasurement.calLength(foot,foot1);
         Assert.assertEquals(true,totalLength);
     }
+
     @Test
     public void givenNull_ToBoth_ShouldReturnTrue()
     {
@@ -40,4 +41,14 @@ public class TestCaseForQuantityMeasurement
         boolean result = quantityMeasurement.calLength(foot,foot1);
         Assert.assertEquals(true,result);
     }
+
+    @Test
+    public void givenValueForEquality_WhenBothSameInches_ThnenShouldReturnTrue()
+    {
+        int inch = 10;
+        int inch1 = 10;
+        boolean result = quantityMeasurement.calLength(inch,inch1);
+        Assert.assertEquals(true,result);
+    }
+
 }
