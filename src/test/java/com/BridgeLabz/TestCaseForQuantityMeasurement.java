@@ -8,20 +8,20 @@ public class TestCaseForQuantityMeasurement
     QuantityMeasurement quantityMeasurement =  new QuantityMeasurement();
 
     @Test
-    public void givenFootNInch_WhenProper_ShouldRetuenProperConversion()
+    public void givenFeetNInch_WhenProper_ShouldRetuenProperConversion()
     {
-        int foot = 1;
+        int feet = 1;
         double inches = 12;
-        double totalLength = quantityMeasurement.calculateLength(foot,inches);
+        double totalLength = quantityMeasurement.calculateLength(feet,inches);
         Assert.assertEquals(12,totalLength,0.0);
     }
 
     @Test
-    public void givenZeroFootAndZeroFoot_WhenBothSame_ShouldRerturnEqual()
+    public void givenZeroFeetAndZeroFeet_WhenBothSame_ShouldRerturnEqual()
     {
-        int foot = 0;
-        int foot1 = 0;
-        boolean totalLength = quantityMeasurement.calLength(foot,foot1);
+        int feet = 0;
+        int feet1 = 0;
+        boolean totalLength = quantityMeasurement.calLength(feet,feet1);
         Assert.assertEquals(true,totalLength);
     }
 
@@ -36,9 +36,9 @@ public class TestCaseForQuantityMeasurement
     @Test
     public void givenValueForEquality_WhenBothSame_ThnenShouldReturnTrue()
     {
-        int foot = 5;
-        int foot1 = 5;
-        boolean result = quantityMeasurement.calLength(foot,foot1);
+        int feet = 5;
+        int feet1 = 5;
+        boolean result = quantityMeasurement.calLength(feet,feet1);
         Assert.assertEquals(true,result);
     }
 
@@ -49,6 +49,15 @@ public class TestCaseForQuantityMeasurement
         int inch1 = 10;
         boolean result = quantityMeasurement.calLength(inch,inch1);
         Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenFtNYard_WhenProper_ShouldReturnYardValue()
+    {
+        int feet = 3;
+        int yard = 1;
+        int result = quantityMeasurement.ftToYardConcersion(feet,yard);
+        Assert.assertEquals(3,result);
     }
 
 }
