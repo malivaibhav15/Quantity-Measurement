@@ -2,13 +2,13 @@ package com.BridgeLabz;
 
 public class QuantityMeasurement
 {
-    public double calculateLength(int foot, double inches) {
-        double totalLength = foot*inches;
+    public double calculateLength(int feet, double inches) {
+        double totalLength = feet*inches;
         return totalLength;
     }
-    public boolean calLength(int foot , int foot1)
+    public boolean calLength(int feet , int feet1)
     {
-        return foot == foot1;
+        return feet == feet1;
     }
 
     @Override
@@ -20,5 +20,10 @@ public class QuantityMeasurement
         if (obj == this)
             return true;
         return super.equals(obj);
+    }
+
+
+    public int ftToYardConcersion(int feet, int yard) {
+        return feet*yard;
     }
 }
