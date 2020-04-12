@@ -89,10 +89,18 @@ public class TestCaseForQuantityMeasurement
     }
 
     @Test
-    public void givenInchToZero_WhenBotAreSame_ShouldReturnTrue() throws QuantityMeasurementException {
+    public void givenInchNFeetToZero_WhenBotAreSame_ShouldReturnTrue() throws QuantityMeasurementException {
         CheckEquals checkEquals = new CheckEquals(0.0,Unit.INCH);
-        CheckEquals checkEquals1 = new CheckEquals(0.0,Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(0.0,Unit.FEET);
         boolean equals = quantityMeasurement.compare(checkEquals,checkEquals1);
         Assert.assertEquals(true,equals);
+    }
+
+    @Test
+    public void givenFeetAndInch_WhenResultEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
+        CheckEquals value2 = new CheckEquals(12.0, Unit.INCH);
+        boolean isEqual = quantityMeasurement.compare(value1, value2);
+        Assert.assertEquals(true, isEqual);
     }
 }
