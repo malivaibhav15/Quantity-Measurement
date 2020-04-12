@@ -168,11 +168,19 @@ public class TestCaseForQuantityMeasurement {
     }
 
     @Test
-    public void givenFeetNInches_WhenProper_ShouldReturnTrue()
+    public void givenFeetNInches_WhenProper_ShouldReturnAddition()
     {
         CheckEquals checkEquals = new CheckEquals(1.0,Unit.FEET);
         CheckEquals checkEquals1 = new CheckEquals(2.0,Unit.INCH);
         double equal = quantityMeasurement.addition(checkEquals,checkEquals1);
         Assert.assertEquals(14.0,equal,0.0) ;
+    }
+
+    @Test
+    public void givenInputFeet_WhenProper_ShouldReturnAddtionInInch() {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.FEET);
+        CheckEquals checkEquals1 = new CheckEquals(2.0, Unit.INCH);
+        double result = quantityMeasurement.addition(checkEquals, checkEquals1);
+        Assert.assertEquals(14.0, result, 0.0);
     }
 }
