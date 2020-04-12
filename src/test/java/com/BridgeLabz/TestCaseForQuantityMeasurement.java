@@ -157,4 +157,13 @@ public class TestCaseForQuantityMeasurement {
         boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
         Assert.assertTrue(equal);
     }
+
+    @Test
+    public void givenInputInInches_WhenProper_ShouldReturnAddition()
+    {
+        CheckEquals checkEquals = new CheckEquals(2.0,Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(2.0,Unit.INCH);
+        double add = quantityMeasurement.addition(checkEquals,checkEquals1);
+        Assert.assertEquals(4.0,add,0.0);
+    }
 }
