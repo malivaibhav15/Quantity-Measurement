@@ -139,4 +139,13 @@ public class TestCaseForQuantityMeasurement {
         boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
         Assert.assertTrue(equal);
     }
+
+    @Test
+    public void given1YardN3Feet_WheenPropper_ShouldRetrunTrue() throws QuantityMeasurementException
+    {
+        CheckEquals checkEquals = new CheckEquals(1.0,Unit.YARD);
+        CheckEquals checkEquals1 = new CheckEquals(3.0,Unit.FEET);
+        boolean equals = quantityMeasurement.compare(checkEquals,checkEquals1);
+        Assert.assertTrue(equals);
+    }
 }
