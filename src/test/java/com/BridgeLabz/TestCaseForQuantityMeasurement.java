@@ -112,7 +112,7 @@ public class TestCaseForQuantityMeasurement {
     public void givenFeetAndYard_When1FeetNotEqualsTo1Yard_ReturnFalse() throws QuantityMeasurementException {
         CheckEquals checkEquals = new CheckEquals(1.0, Unit.FEET);
         CheckEquals checkEquals1 = new CheckEquals(1.0, Unit.YARD);
-        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        boolean equal = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertFalse(equal);
     }
 
@@ -120,7 +120,7 @@ public class TestCaseForQuantityMeasurement {
     public void givenInchAndYard_When1InchNotEqualsTo1Yard_ReturnFalse() throws QuantityMeasurementException {
         CheckEquals checkEquals = new CheckEquals(1.0, Unit.INCH);
         CheckEquals checkEquals1 = new CheckEquals(1.0, Unit.YARD);
-        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        boolean equal = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertFalse(equal);
     }
 
@@ -128,7 +128,7 @@ public class TestCaseForQuantityMeasurement {
     public void givenInchAndYard_When1YardEqualsTo36Inch_ReturnTrue() throws QuantityMeasurementException {
         CheckEquals checkEquals = new CheckEquals(36.0, Unit.INCH);
         CheckEquals checkEquals1 = new CheckEquals(1.0, Unit.YARD);
-        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        boolean equal = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertTrue(equal);
     }
 
@@ -136,44 +136,40 @@ public class TestCaseForQuantityMeasurement {
     public void givenInchAndYard_When36InchEqualsTo1Yard_ReturnTrue() throws QuantityMeasurementException {
         CheckEquals checkEquals = new CheckEquals(1.0, Unit.YARD);
         CheckEquals checkEquals1 = new CheckEquals(36.0, Unit.INCH);
-        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        boolean equal = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertTrue(equal);
     }
 
     @Test
-    public void given1YardN3Feet_WheenPropper_ShouldRetrunTrue() throws QuantityMeasurementException
-    {
-        CheckEquals checkEquals = new CheckEquals(1.0,Unit.YARD);
-        CheckEquals checkEquals1 = new CheckEquals(3.0,Unit.FEET);
-        boolean equals = quantityMeasurement.compare(checkEquals,checkEquals1);
+    public void given1YardN3Feet_WheenPropper_ShouldRetrunTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.YARD);
+        CheckEquals checkEquals1 = new CheckEquals(3.0, Unit.FEET);
+        boolean equals = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertTrue(equals);
     }
 
     @Test
-    public void givenInchAndcm_WhenProper_ShouldReturnTrue() throws QuantityMeasurementException
-    {
-        CheckEquals checkEquals = new CheckEquals(2.0,Unit.INCH);
-        CheckEquals checkEquals1 = new CheckEquals(5.0,Unit.CENTIMETER);
-        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+    public void givenInchAndcm_WhenProper_ShouldReturnTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(2.0, Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(5.0, Unit.CENTIMETER);
+        boolean equal = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertTrue(equal);
     }
 
     @Test
-    public void givenInputInInches_WhenProper_ShouldReturnAddition()
-    {
-        CheckEquals checkEquals = new CheckEquals(2.0,Unit.INCH);
-        CheckEquals checkEquals1 = new CheckEquals(2.0,Unit.INCH);
-        double add = quantityMeasurement.addition(checkEquals,checkEquals1);
-        Assert.assertEquals(4.0,add,0.0);
+    public void givenInputInInches_WhenProper_ShouldReturnAddition() {
+        CheckEquals checkEquals = new CheckEquals(2.0, Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(2.0, Unit.INCH);
+        double add = quantityMeasurement.addition(checkEquals, checkEquals1);
+        Assert.assertEquals(4.0, add, 0.0);
     }
 
     @Test
-    public void givenFeetNInches_WhenProper_ShouldReturnAddition()
-    {
-        CheckEquals checkEquals = new CheckEquals(1.0,Unit.FEET);
-        CheckEquals checkEquals1 = new CheckEquals(2.0,Unit.INCH);
-        double equal = quantityMeasurement.addition(checkEquals,checkEquals1);
-        Assert.assertEquals(14.0,equal,0.0) ;
+    public void givenFeetNInches_WhenProper_ShouldReturnAddition() {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.FEET);
+        CheckEquals checkEquals1 = new CheckEquals(2.0, Unit.INCH);
+        double equal = quantityMeasurement.addition(checkEquals, checkEquals1);
+        Assert.assertEquals(14.0, equal, 0.0);
     }
 
     @Test
@@ -185,36 +181,34 @@ public class TestCaseForQuantityMeasurement {
     }
 
     @Test
-    public void givenInchNcm_WhenProper_ThenShouldReturnAddtion()
-    {
-        CheckEquals checkEquals = new CheckEquals(2.0,Unit.INCH);
-        CheckEquals checkEquals1 = new CheckEquals(2.5,Unit.CENTIMETER);
-        double result = quantityMeasurement.addition(checkEquals,checkEquals1);
-        Assert.assertEquals(3.0,result,0.0);
+    public void givenInchNcm_WhenProper_ThenShouldReturnAddtion() {
+        CheckEquals checkEquals = new CheckEquals(2.0, Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(2.5, Unit.CENTIMETER);
+        double result = quantityMeasurement.addition(checkEquals, checkEquals1);
+        Assert.assertEquals(3.0, result, 0.0);
     }
 
     @Test
-    public void givenGallonNLitre_WhenProper_ShouldAddThem()
-    {
-        CheckEquals checkEquals = new CheckEquals(1.0,Unit.GALLON);
-        CheckEquals checkEquals1 = new CheckEquals(3.78,Unit.LITRE);
-        double add = quantityMeasurement.addition(checkEquals,checkEquals1);
-        Assert.assertEquals(7.56,add,0.0);
+    public void givenGallonNLitre_WhenProper_ShouldAddThem() {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.GALLON);
+        CheckEquals checkEquals1 = new CheckEquals(3.78, Unit.LITRE);
+        double add = quantityMeasurement.addition(checkEquals, checkEquals1);
+        Assert.assertEquals(7.56, add, 0.0);
     }
 
     @Test
-    public void givenLitreNMl_WhenProper_ShouldAddThem()
-    {
-        CheckEquals checkEquals = new CheckEquals(1.0,Unit.LITRE);
-        CheckEquals checkEquals1 = new CheckEquals(1000.0,Unit.ML);
-        double add = quantityMeasurement.addition(checkEquals,checkEquals1);
-        Assert.assertEquals(2.0,add,0.0);
+    public void givenLitreNMl_WhenProper_ShouldAddThem() {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.LITRE);
+        CheckEquals checkEquals1 = new CheckEquals(1000.0, Unit.ML);
+        double add = quantityMeasurement.addition(checkEquals, checkEquals1);
+        Assert.assertEquals(2.0, add, 0.0);
     }
+
     @Test
     public void givenKgNGrams_WhenSame_ShouldReturnTrue() throws QuantityMeasurementException {
-        CheckEquals checkEquals = new CheckEquals(1.0,Unit.KILOGRAMS);
-        CheckEquals checkEquals1 = new CheckEquals(1000.0,Unit.GRAMS);
-        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.KILOGRAMS);
+        CheckEquals checkEquals1 = new CheckEquals(1000.0, Unit.GRAMS);
+        boolean equal = quantityMeasurement.compare(checkEquals, checkEquals1);
         Assert.assertTrue(equal);
     }
 
@@ -232,5 +226,13 @@ public class TestCaseForQuantityMeasurement {
         CheckEquals CheckEquals1 = new CheckEquals(1000.0, Unit.GRAMS);
         double result = quantityMeasurement.addition(checkEquals, CheckEquals1);
         Assert.assertEquals(1001, result, 0.0);
+    }
+
+    @Test
+    public void givenTemperature_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(212.0, Unit.FAHRENHEIT);
+        CheckEquals checkEquals1 = new CheckEquals(100.0, Unit.CELSIUS);
+        boolean isEqual = quantityMeasurement.compare(checkEquals, checkEquals1);
+        Assert.assertTrue(isEqual);
     }
 }
