@@ -193,4 +193,13 @@ public class TestCaseForQuantityMeasurement {
         Assert.assertEquals(3.0,result,0.0);
     }
 
+    @Test
+    public void givenGallonNLitre_WhenProper_ShouldAddThem()
+    {
+        CheckEquals checkEquals = new CheckEquals(1.0,Unit.GALLON);
+        CheckEquals checkEquals1 = new CheckEquals(3.78,Unit.LITRE);
+        double add = quantityMeasurement.addition(checkEquals,checkEquals1);
+        Assert.assertEquals(7.56,add,0.0);
+    }
+
 }
