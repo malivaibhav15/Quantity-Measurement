@@ -166,4 +166,13 @@ public class TestCaseForQuantityMeasurement {
         double add = quantityMeasurement.addition(checkEquals,checkEquals1);
         Assert.assertEquals(4.0,add,0.0);
     }
+
+    @Test
+    public void givenFeetNInches_WhenProper_ShouldReturnTrue()
+    {
+        CheckEquals checkEquals = new CheckEquals(1.0,Unit.FEET);
+        CheckEquals checkEquals1 = new CheckEquals(2.0,Unit.INCH);
+        double equal = quantityMeasurement.addition(checkEquals,checkEquals1);
+        Assert.assertEquals(14.0,equal,0.0) ;
+    }
 }
