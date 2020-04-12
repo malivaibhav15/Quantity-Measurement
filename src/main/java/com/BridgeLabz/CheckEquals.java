@@ -1,12 +1,11 @@
 package com.BridgeLabz;
 
-public class CheckEquals
-{
+public class CheckEquals {
     private final double value;
     private final Unit unitValue;
 
     public CheckEquals(double value, Unit unitValue) {
-        this.value = value;
+        this.value = value * unitValue.getValue();
         this.unitValue = unitValue;
     }
 
@@ -15,5 +14,6 @@ public class CheckEquals
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         CheckEquals that = (CheckEquals) object;
-        return Double.compare(that.value, value) == 0;    }
+        return Double.compare(that.value, value) == 0;
+    }
 }
