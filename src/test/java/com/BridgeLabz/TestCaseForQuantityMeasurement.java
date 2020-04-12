@@ -62,4 +62,12 @@ public class TestCaseForQuantityMeasurement
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
         }
     }
+
+    @Test
+    public void givenInchReference_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals value1 = new CheckEquals(1.0,Unit.INCH);
+        boolean isEqual = quantityMeasurement.compare(value1,value1);
+        Assert.assertEquals(true,isEqual);
+    }
+
 }
