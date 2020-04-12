@@ -1,29 +1,10 @@
 package com.BridgeLabz;
 
-public class QuantityMeasurement
-{
-    public double calculateLength(int feet, double inches) {
-        double totalLength = feet*inches;
-        return totalLength;
-    }
-    public boolean calLength(int feet , int feet1)
-    {
-        return feet == feet1;
-    }
+public class QuantityMeasurement {
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null)
-            return true;
-        if (this.getClass() == obj.getClass())
-            return true;
-        if (obj == this)
-            return true;
-        return super.equals(obj);
-    }
-
-
-    public int ftToYardConcersion(int feet, int yard) {
-        return feet*yard;
+    public boolean compare(CheckEquals value1, CheckEquals value2) throws QuantityMeasurementException {
+        if (value1 == null || value2 == null)
+            throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, "Null Object");
+        return value1.equals(value2);
     }
 }
