@@ -8,56 +8,58 @@ public class TestCaseForQuantityMeasurement
     QuantityMeasurement quantityMeasurement =  new QuantityMeasurement();
 
     @Test
-    public void givenFeetNInch_WhenProper_ShouldRetuenProperConversion()
-    {
-        int feet = 1;
-        double inches = 12;
-        double totalLength = quantityMeasurement.calculateLength(feet,inches);
-        Assert.assertEquals(12,totalLength,0.0);
+    public void givenFeetValue_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
+        CheckEquals value2 = new CheckEquals(1.0, Unit.FEET);
+        boolean isEqual = quantityMeasurement.compare(value1, value2);
+        Assert.assertEquals(true, isEqual);
     }
 
     @Test
-    public void givenZeroFeetAndZeroFeet_WhenBothSame_ShouldRerturnEqual()
-    {
-        int feet = 0;
-        int feet1 = 0;
-        boolean totalLength = quantityMeasurement.calLength(feet,feet1);
-        Assert.assertEquals(true,totalLength);
+    public void givenNullValue_WhenNotEqual_ReturnFalse() {
+        CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
+        try {
+            boolean isEqual = quantityMeasurement.compare(value1, null);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
+        }
     }
 
     @Test
-    public void givenNull_ToBoth_ShouldReturnTrue()
-    {
-        boolean value = quantityMeasurement.equals(null);
-        boolean value1 = quantityMeasurement.equals(null);
-        Assert.assertEquals(value,value1);
+    public void givenSameReferance_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
+        boolean isEqual = quantityMeasurement.compare(value1, value1);
+        Assert.assertEquals(true, isEqual);
     }
 
     @Test
-    public void givenValueForEquality_WhenBothSame_ThnenShouldReturnTrue()
-    {
-        int feet = 5;
-        int feet1 = 5;
-        boolean result = quantityMeasurement.calLength(feet,feet1);
-        Assert.assertEquals(true,result);
+    public void givenSameType_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        double feet1 = 1.0;
+        double feet2 = 1.0;
+        CheckEquals value1 = new CheckEquals(feet1, Unit.FEET);
+        CheckEquals value2 = new CheckEquals(feet2, Unit.FEET);
+        boolean isEqual = quantityMeasurement.compare(value1, value2);
+        Assert.assertEquals(true, isEqual);
     }
 
     @Test
-    public void givenValueForEquality_WhenBothSameInches_ThnenShouldReturnTrue()
-    {
-        int inch = 10;
-        int inch1 = 10;
-        boolean result = quantityMeasurement.calLength(inch,inch1);
-        Assert.assertEquals(true,result);
+    public void givenSameFeetValue_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals value1 = new CheckEquals(12.0, Unit.FEET);
+        CheckEquals value2 = new CheckEquals(12.0, Unit.FEET);
+        boolean isEqual = quantityMeasurement.compare(value1, value2);
+        Assert.assertEquals(true, isEqual);
     }
 
     @Test
-    public void givenFtNYard_WhenProper_ShouldReturnYardValue()
+    public void givenNullInInch_WhenNotEqual_ShouldReturnFalse()
     {
-        int feet = 3;
-        int yard = 1;
-        int result = quantityMeasurement.ftToYardConcersion(feet,yard);
-        Assert.assertEquals(3,result);
+        CheckEquals value1 = new CheckEquals(1.0,Unit.INCH);
+        try
+        {
+            boolean isEqual = quantityMeasurement.compare(value1,null);
+        }catch (QuantityMeasurementException e)
+        {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
+        }
     }
-
 }
