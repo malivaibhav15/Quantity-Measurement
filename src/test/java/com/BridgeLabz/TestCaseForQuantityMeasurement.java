@@ -210,5 +210,12 @@ public class TestCaseForQuantityMeasurement {
         double add = quantityMeasurement.addition(checkEquals,checkEquals1);
         Assert.assertEquals(2.0,add,0.0);
     }
+    @Test
+    public void givenKgNGrams_WhenSame_ShouldReturnTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(1.0,Unit.KILOGRAMS);
+        CheckEquals checkEquals1 = new CheckEquals(1000.0,Unit.GRAMS);
+        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        Assert.assertTrue(equal);
+    }
 
 }
