@@ -123,4 +123,12 @@ public class TestCaseForQuantityMeasurement {
         boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
         Assert.assertFalse(equal);
     }
+
+    @Test
+    public void givenInchAndYard_When1YardEqualsTo36Inch_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(36.0, Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(1.0, Unit.YARD);
+        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        Assert.assertTrue(equal);
+    }
 }
