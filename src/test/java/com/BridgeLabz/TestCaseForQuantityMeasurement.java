@@ -148,4 +148,13 @@ public class TestCaseForQuantityMeasurement {
         boolean equals = quantityMeasurement.compare(checkEquals,checkEquals1);
         Assert.assertTrue(equals);
     }
+
+    @Test
+    public void givenInchAndcm_WhenProper_ShouldReturnTrue() throws QuantityMeasurementException
+    {
+        CheckEquals checkEquals = new CheckEquals(2.0,Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(5.0,Unit.CENTIMETER);
+        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        Assert.assertTrue(equal);
+    }
 }
