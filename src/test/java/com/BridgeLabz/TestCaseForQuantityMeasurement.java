@@ -202,4 +202,13 @@ public class TestCaseForQuantityMeasurement {
         Assert.assertEquals(7.56,add,0.0);
     }
 
+    @Test
+    public void givenLitreNMl_WhenProper_ShouldAddThem()
+    {
+        CheckEquals checkEquals = new CheckEquals(1.0,Unit.LITRE);
+        CheckEquals checkEquals1 = new CheckEquals(1000.0,Unit.ML);
+        double add = quantityMeasurement.addition(checkEquals,checkEquals1);
+        Assert.assertEquals(2.0,add,0.0);
+    }
+
 }
