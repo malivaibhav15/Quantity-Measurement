@@ -218,4 +218,12 @@ public class TestCaseForQuantityMeasurement {
         Assert.assertTrue(equal);
     }
 
+    @Test
+    public void givenTonneAndkgs_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.TONNE);
+        CheckEquals CheckEquals1 = new CheckEquals(1000.0, Unit.KILOGRAMS);
+        boolean equal = quantityMeasurement.compare(checkEquals, CheckEquals1);
+        Assert.assertTrue(equal);
+    }
+
 }
