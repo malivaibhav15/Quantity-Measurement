@@ -226,4 +226,11 @@ public class TestCaseForQuantityMeasurement {
         Assert.assertTrue(equal);
     }
 
+    @Test
+    public void givenTonneAndGm_WhenEqual_ReturnTrue() {
+        CheckEquals checkEquals = new CheckEquals(1.0, Unit.TONNE);
+        CheckEquals CheckEquals1 = new CheckEquals(1000.0, Unit.GRAMS);
+        double result = quantityMeasurement.addition(checkEquals, CheckEquals1);
+        Assert.assertEquals(1001, result, 0.0);
+    }
 }
