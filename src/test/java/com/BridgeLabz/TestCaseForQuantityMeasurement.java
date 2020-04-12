@@ -71,12 +71,20 @@ public class TestCaseForQuantityMeasurement
     }
 
     @Test
-    public void givenSameInch_WhenEqual_RetuenTrue() throws QuantityMeasurementException {
+    public void givenSameInchtype_WhenEqual_RetuenTrue() throws QuantityMeasurementException {
         double inch1 = 24.0;
         double inch2 = 24.0;
         CheckEquals value1 = new CheckEquals(inch1,Unit.INCH);
         CheckEquals value2 = new CheckEquals(inch2,Unit.INCH);
         boolean equals = quantityMeasurement.compare(value1,value2);
         Assert.assertEquals(true,equals);
+    }
+
+    @Test
+    public void givenValueInInch_WhenSame_ThenShouldReturnTrue() throws QuantityMeasurementException {
+        CheckEquals value1 = new CheckEquals(24.0,Unit.INCH);
+        CheckEquals value2 = new CheckEquals(24.0,Unit.INCH);
+        boolean equal = quantityMeasurement.compare(value1,value2);
+        Assert.assertEquals(true,equal);
     }
 }
