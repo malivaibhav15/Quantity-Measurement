@@ -12,7 +12,7 @@ public class TestCaseForQuantityMeasurement
         CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
         CheckEquals value2 = new CheckEquals(1.0, Unit.FEET);
         boolean isEqual = quantityMeasurement.compare(value1, value2);
-        Assert.assertEquals(true, isEqual);
+        Assert.assertTrue(isEqual);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class TestCaseForQuantityMeasurement
     public void givenSameReferance_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
         CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
         boolean isEqual = quantityMeasurement.compare(value1, value1);
-        Assert.assertEquals(true, isEqual);
+        Assert.assertTrue(isEqual);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class TestCaseForQuantityMeasurement
         CheckEquals value1 = new CheckEquals(feet1, Unit.FEET);
         CheckEquals value2 = new CheckEquals(feet2, Unit.FEET);
         boolean isEqual = quantityMeasurement.compare(value1, value2);
-        Assert.assertEquals(true, isEqual);
+        Assert.assertTrue(isEqual);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TestCaseForQuantityMeasurement
         CheckEquals value1 = new CheckEquals(12.0, Unit.FEET);
         CheckEquals value2 = new CheckEquals(12.0, Unit.FEET);
         boolean isEqual = quantityMeasurement.compare(value1, value2);
-        Assert.assertEquals(true, isEqual);
+        Assert.assertTrue(isEqual);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class TestCaseForQuantityMeasurement
     public void givenInchReference_WhenEqual_ReturnTrue() throws QuantityMeasurementException {
         CheckEquals value1 = new CheckEquals(1.0,Unit.INCH);
         boolean isEqual = quantityMeasurement.compare(value1,value1);
-        Assert.assertEquals(true,isEqual);
+        Assert.assertTrue(isEqual);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class TestCaseForQuantityMeasurement
         CheckEquals value1 = new CheckEquals(inch1,Unit.INCH);
         CheckEquals value2 = new CheckEquals(inch2,Unit.INCH);
         boolean equals = quantityMeasurement.compare(value1,value2);
-        Assert.assertEquals(true,equals);
+        Assert.assertTrue(equals);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class TestCaseForQuantityMeasurement
         CheckEquals value1 = new CheckEquals(24.0,Unit.INCH);
         CheckEquals value2 = new CheckEquals(24.0,Unit.INCH);
         boolean equal = quantityMeasurement.compare(value1,value2);
-        Assert.assertEquals(true,equal);
+        Assert.assertTrue(equal);
     }
 
     @Test
@@ -93,7 +93,7 @@ public class TestCaseForQuantityMeasurement
         CheckEquals checkEquals = new CheckEquals(0.0,Unit.INCH);
         CheckEquals checkEquals1 = new CheckEquals(0.0,Unit.FEET);
         boolean equals = quantityMeasurement.compare(checkEquals,checkEquals1);
-        Assert.assertEquals(true,equals);
+        Assert.assertTrue(equals);
     }
 
     @Test
@@ -101,6 +101,14 @@ public class TestCaseForQuantityMeasurement
         CheckEquals value1 = new CheckEquals(1.0, Unit.FEET);
         CheckEquals value2 = new CheckEquals(12.0, Unit.INCH);
         boolean isEqual = quantityMeasurement.compare(value1, value2);
-        Assert.assertEquals(true, isEqual);
+        Assert.assertTrue(isEqual);
+    }
+
+    @Test
+    public void givenFeetAndYard_When3FeetEqualsToYard_ReturnTrue() throws QuantityMeasurementException {
+        CheckEquals checkEquals = new CheckEquals(3.0, Unit.FEET);
+        CheckEquals checkEquals1 = new CheckEquals(1.0, Unit.YARD);
+        boolean equal = quantityMeasurement.compare(checkEquals,checkEquals1);
+        Assert.assertTrue(equal);
     }
 }
