@@ -183,4 +183,14 @@ public class TestCaseForQuantityMeasurement {
         double result = quantityMeasurement.addition(checkEquals, checkEquals1);
         Assert.assertEquals(14.0, result, 0.0);
     }
+
+    @Test
+    public void givenInchNcm_WhenProper_ThenShouldReturnAddtion()
+    {
+        CheckEquals checkEquals = new CheckEquals(2.0,Unit.INCH);
+        CheckEquals checkEquals1 = new CheckEquals(2.5,Unit.CENTIMETER);
+        double result = quantityMeasurement.addition(checkEquals,checkEquals1);
+        Assert.assertEquals(3.0,result,0.0);
+    }
+
 }
