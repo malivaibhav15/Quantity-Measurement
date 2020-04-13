@@ -1,7 +1,7 @@
 package com.BridgeLabz;
 
 public class CheckEquals {
-    private final double value;
+    public final double value;
     private final Unit unitValue;
 
     public CheckEquals(double value, Unit unitValue) {
